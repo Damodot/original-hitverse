@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <link rel="icon" href="hitverse-logo.png" />
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://kit.fontawesome.com/bbacfaf443.js" crossorigin="anonymous"></script>
+    <title>Login | Hitverse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100dvw;
+            height: 100dvh;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        main {
+            width: 30%;
+            height: fit-content;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            overflow-x: hidden;
+        }
+
+        main img {
+            width: 160px;
+            height: 32px;
+            display: block;
+            margin: auto;
+        }
+
+        main h1,
+        main p {
+            color: black;
+        }
+
+        .logForm {
+            width: 90%;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(101, 1, 167);
+            font-weight: 500;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: rgb(55, 0, 92);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        input {
+            outline: none;
+            border: 0.1px solid rgb(228, 228, 228);
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        input:focus {
+            box-shadow: 0px 0px 5px rgb(101, 1, 167);
+        }
+
+        .logBtn {
+            background-color: rgb(101, 1, 167);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .logBtn:hover,
+        .modalCont button:hover {
+            background-color: rgb(55, 0, 92);
+            color: white;
+        }
+
+        .logBtn:active,
+        .modalCont button:active {
+            background-color: rgb(55, 0, 92);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal {
+            display: none;
+            width: 100dvw;
+            height: 100dvh;
+            background-color: rgba(10, 10, 10, 0.5);
+            z-index: 10;
+            transition: display 0.3s ease;
+        }
+
+        .modalCont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100dvw;
+            height: 100dvh;
+        }
+
+        .cancelBtn {
+            float: right;
+        }
+
+        #entForPass {
+            width: 100%;
+        }
+
+        .modalCont button {
+            background-color: rgb(101, 1, 167);
+            color: white;
+        }
+
+        .vidTag {
+            top: 0;
+            left: 0;
+            z-index: -5;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: fixed;
+        }
+
+        .showPass {
+            top: 50%;
+            right: 5px;
+            transform: translateY(-20%);
+            font-size: 10px;
+            z-index: 10;
+        }
+
+        .modalCont section {
+            width: 25%;
+        }
+
+        .text-danger {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+
+        @media (max-width: 1200px) {
+            main {
+                width: 30%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            main {
+                width: 40%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            main {
+                width: 70%;
+            }
+
+            .modalCont section {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body class="position-relative">
+    <video muted loop autoplay class="position-absolute vidTag">
+        <source src="bacgVid.mp4" type="video/mp4" />
+    </video>
+    <main class="m-auto p-3 rounded-4 shadow py-5">
+        <img src="Music Platform.png" alt="" />
+        <h1 class="fw-bolder text-center mt-3">Login</h1>
+        <div class="reply mt-4" aria-live="polite"></div>
+        <div class="logForm mt-5 m-auto">
+            <input type="email" placeholder="Enter Email" class="w-100" id="emailEnter" />
+            <div class="passBlock position-relative h-auto">
+                <input type="password" placeholder="Enter Password" class="w-100 mt-4" id="entPass" />
+                <button class="btn showPass position-absolute" onclick="togglePassShow()">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+            <button class="btn w-100 mt-4 rounded-5 logBtn" onclick="checkDets()">
+                Login
+            </button>
+        </div>
+        <p class="text-center mt-4">
+            <a href="#" onclick="showModal()">Forgot Password?</a>
+        </p>
+        <section class="w-100 h-auto mt-4">
+            <p class="text-center py-2">
+                Dont have an account? <a href="signUp.html">Create your account</a>
+            </p>
+        </section>
+    </main>
+    <div class="modal">
+        <button class="btn cancelBtn mt-3 me-4" onclick="cancModal()">
+            <i class="fa-solid fa-xmark text-white fs-3"></i>
+        </button>
+        <div class="modalCont">
+            <section class="rounded-3 shadow m-auto p-3 bg-white h-auto">
+                <div class="passwordOutput"></div>
+                <p class="text-center mt-3">
+                    Please enter the email linked to your account
+                </p>
+                <input type="email" placeholder="Enter email" id="entForPass" />
+                <button class="btn my-3 w-100" onclick="forgotPassword()">
+                    Reset
+                </button>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let email = document.getElementById("emailEnter");
+    let password = document.getElementById("entPass");
+    let output = document.querySelector(".reply");
+    let onlyBtn = document.querySelector(".logBtn");
+    let myModal = document.querySelector(".modal");
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCFl9LtA75ZlOPUxsAIpgaJRRKhPZAhVGY",
+        authDomain: "hitvverse.firebaseapp.com",
+        projectId: "hitvverse",
+        storageBucket: "hitvverse.firebasestorage.app",
+        messagingSenderId: "151581483016",
+        appId: "1:151581483016:web:3fa4a135104d6d621731bd",
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function togglePassShow() {
+        const passwordInput = document.getElementById("entPass");
+        const toggleIcon = document.querySelector(".showPass");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`;
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.innerHTML = `<i class="fa-solid fa-eye"></i>`;
+        }
+    }
+
+    let cancModal = () => {
+        console.log(myModal);
+        myModal.style.display = `none`;
+    };
+
+    let showModal = () => {
+        console.log(myModal);
+        myModal.style.display = `block`;
+    };
+    let spaceChange = () => {
+        onlyBtn.innerHTML = `Login`;
+        onlyBtn.disabled = false;
+    };
+
+    let countDown = () => {
+        setTimeout(() => {
+            output.innerHTML = ``;
+            spaceChange();
+        }, 2000);
+    };
+
+    function checkDets() {
+        onlyBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+        onlyBtn.disabled = true;
+
+        if (!email.value.trim() || !password.value.trim()) {
+            output.innerHTML = `<h5 class="text-center text-danger">All fields are mandatory</h5>`;
+            countDown();
+            // spaceChange()
+            return;
+        }
+
+        let myEmail = email.value.trim();
+        let myPassword = password.value.trim();
+
+        auth
+            .signInWithEmailAndPassword(myEmail, myPassword)
+            .then((userCredential) => {
+                // Signed in
+                var user = userCredential.user;
+
+                output.innerHTML = `<h5 class="text-center text-success">Login Successful</h5>`;
+                countDown();
+                // spaceChange()
+                window.location.href = `hitverse.html`;
+                // ...
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                output.innerHTML = `<h5 class="text-center text-danger mw-100">Invalid Email or Password! Try again</h5>`;
+                countDown();
+                // spaceChange()
+            });
+    }
+    function forgotPassword() {
+        const resetBtn = document.querySelector(".modalCont button");
+        resetBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+        resetBtn.disabled = true;
+        let emailChange = document.getElementById("entForPass").value.trim();
+        let replyer = document.querySelector(".passwordOutput");
+
+        if (!emailChange) {
+            output.innerHTML = `<h5 class="text-center text-danger">Please enter your email to reset the password</h5>`;
+            setTimeout(() => {
+                resetBtn.disabled = false;
+                resetBtn.innerHTML = "Reset";
+            }, 2000);
+            countDown();
+            return;
+        }
+
+        auth
+            .sendPasswordResetEmail(emailChange)
+            .then(() => {
+                output.innerHTML = `<h5 class="text-center text-success">Password reset email sent! Check your inbox.</h5>`;
+                countDown();
+                console.log("hello");
+            })
+            .catch((error) => {
+                var errorMessage = error.message;
+                output.innerHTML = `<h5 class="text-center text-danger">${errorMessage}</h5>`;
+                countDown();
+            });
+    }
+</script>

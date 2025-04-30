@@ -1,0 +1,577 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(10, 10, 10);
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    transition: background-image 0.3s ease, color 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loader img {
+    width: 4em;
+    height: 0.8em;
+    animation: blink 1s ease infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.loader {
+    background-color: rgb(10, 10, 10);
+    position: absolute;
+    display: flex;
+    height: 100dvh;
+    z-index: 10;
+}
+
+/* Dashboard */
+main {
+    width: 100%;
+    z-index: 1;
+}
+
+.inPlay {
+    width: 35%;
+    height: 96dvh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(0);
+    /* border-right: 1px solid rgb(220, 220, 220); */
+}
+
+.inPlay::-webkit-scrollbar {
+    width: 0;
+}
+
+.image {
+    width: 4em;
+    aspect-ratio: 1 / 1;
+    background-image: url(soundCheck.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.image span,
+.image p {
+    font-size: 0.5em;
+}
+
+.dpics {
+    width: 0.7em;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.dpics img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.songName {
+    font-size: 1.3em;
+}
+
+.likeButtonWhite {
+    color: white;
+}
+
+.musicArt {
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+.musicArt img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.playDiv i {
+    font-size: 2em;
+    color: rgb(10, 10, 10);
+}
+
+.playDiv {
+    width: fit-content;
+}
+
+.nameInfo p {
+    font-size: 0.4em;
+}
+
+.undBtns {
+    position: absolute;
+    bottom: 0.8em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.undBtns i,
+.nameInfo p {
+    color: rgb(220, 220, 220);
+}
+
+.whiteWrd {
+    color: rgb(220, 220, 220);
+}
+
+.timerDiv span {
+    font-size: 0.3em;
+}
+
+.waiter {
+    width: 60%;
+    accent-color: rgb(97, 0, 161);
+}
+
+.wrdLogo {
+    width: 2em;
+    height: 0.33em;
+}
+
+.imageLogo {
+    width: 2em;
+}
+
+.hitLogo {
+    width: 0.7em;
+    aspect-ratio: 1 / 1;
+    background-image: url(hitverse-logo.png);
+    background-size: cover;
+}
+
+.libraryCont span {
+    font-size: 0.4em;
+    color: rgb(97, 0, 161);
+}
+
+.title span {
+    font-size: 0.5em;
+    color: rgb(97, 0, 161);
+}
+
+.asideCancel {
+    display: none;
+}
+
+.contRgt i {
+    font-size: 0.4em;
+}
+
+.options i,
+.options span {
+    font-size: 1.5em;
+}
+
+.songList {
+    display: none;
+}
+
+.myImage {
+    width: 4em;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: fixed;
+}
+
+.myImage img {
+    width: 100%;
+    height: 100%;
+}
+
+.songName {
+    font-size: 1.3em;
+}
+
+.imageTwo {
+    background-image: url(IMG_3189.jpg);
+}
+
+.imageThree {
+    background-image: url(Damn.jpg);
+}
+
+.imageFour {
+    background-image: url(IMG-9415.jpg);
+}
+
+.imageFive {
+    background-image: url(nobody.jpg);
+}
+
+.imageBodyBag {
+    background-image: url(body\ bag.jpg);
+}
+
+.mashupImage{
+    background-image: url(dj\ great\ +++.jpg);
+}
+.soundCheckList,
+.popList {
+    display: none;
+}
+
+section {
+    height: 96dvh;
+    overflow-y: auto;
+}
+
+section::-webkit-scrollbar {
+    width: 0;
+}
+
+.songTitle {
+    background-color: rgb(10, 10, 10);
+    top: 0;
+    z-index: 5;
+}
+
+.realList {
+    z-index: 1;
+}
+
+.artist span,
+.artist p {
+    font-size: 0.9em;
+}
+
+.songSideRgt i {
+    font-size: 0.9em;
+}
+
+.lastSong {
+    margin-bottom: 3em;
+}
+
+.dropCont {
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0 0 0.7em rgb(97, 0, 161);
+    width: 8em;
+    border-radius: 0.3em;
+    aspect-ratio: 1 / 0.4;
+    z-index: 30;
+    transition: all 0.3s ease;
+}
+
+.dropCont button {
+    float: inline-end;
+}
+
+.songSide {
+    z-index: 25;
+}
+
+.fixedPlayer {
+    display: none;
+}
+
+.fixedWrd {
+    font-size: 0.4em;
+}
+
+.songPic {
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    border-radius: 0.3em;
+}
+
+.songPic img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.rgtFixed {
+    float: right;
+}
+
+.fixedUnder {
+    width: 3em;
+    aspect-ratio: 1 / 1;
+    border-radius: 0.3em;
+    overflow: hidden;
+}
+
+.contDropCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.btn-social {
+    position: relative;
+    width: 1.1em;
+    height: 1.1em;
+    font-size: 0.5em;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.btn-social:hover {
+    transform: scale(1.05);
+}
+
+.soc-label {
+    position: absolute;
+    top: -0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.1em;
+    padding: 0.1em;
+    font-size: 0.4em;
+    opacity: 0;
+    transition: 0.3s all ease;
+}
+
+.btn-social:hover .soc-label {
+    opacity: 1;
+    top: -0.8em;
+}
+
+.fb {
+    background-color: blue;
+}
+
+.lyricsDisplay {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(10, 10, 10);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 14;
+    display: none;
+    transition: display 0.3s ease;
+}
+
+.reply {
+    width: 70%;
+    aspect-ratio: 1 / 0.22;
+    border: 0.5px solid rgb(97, 0, 161);
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgb(97, 0, 161);
+}
+
+.blackFade {
+    background: linear-gradient(to right, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0));
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.yourPictureDiv {
+    background-image: url(damo7.jpg);
+    background-position: center;
+    background-size: cover;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1)100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1)100%);
+}
+
+.yourPictureDiv img {
+    width: 100%;
+    height: 100%;
+}
+
+.anton-sc-regular {
+    font-family: "Anton SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    font-size: 0.4em;
+    color: rgb(97, 0, 161);
+}
+
+.fadeCont {
+    width: 50%;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+}
+
+.topLyricsCont {
+    background-color: rgb(10, 10, 10);
+    top: 0;
+}
+
+.topLyricsCont h2 {
+    color: rgb(97, 0, 161);
+    text-shadow: 0px 0px 0.5em rgb(97, 0, 161);
+}
+
+.whiteShad {
+    text-shadow: 0px 0px 0.5em white;
+    font-size: 0.5em;
+    font-weight: 500;
+}
+
+.lyricsDisplay {
+    margin: 1em auto 4em auto;
+}
+
+.lyricsCont {
+    overflow-y: auto;
+    width: 80%;
+    margin: 1em auto 2em auto;
+    z-index: 10000;
+}
+
+.lyricsCont::-webkit-scrollbar {
+    height: 0em;
+    width: 0em;
+}
+
+@media (max-width: 998px) {
+    .anton-sc-regular {
+        font-weight: 150;
+        font-size: 0.3lem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 35px;
+    }
+
+    .inPlay {
+        width: 100dvw;
+        height: 100dvh;
+        position: fixed;
+        transform: translateY(110%);
+        left: 0;
+        border-right: none;
+        background-color: rgb(10, 10, 10);
+        z-index: 20;
+        transition: transform 0.5s ease;
+        border: none;
+    }
+
+    section {
+        z-index: 1;
+        width: 100%;
+    }
+
+    .options i,
+    .options span {
+        font-size: 1em;
+    }
+
+    .fixedPlayer {
+        display: block;
+        z-index: 15;
+        width: 100dvw;
+        height: 10dvh;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(20, 20, 20);
+        z-index: 15;
+        bottom: 0;
+    }
+
+    .fixedPlayer:hover,
+    .fixedPlayer:active,
+    .fixedPlayer:focus {
+        width: 100dvw;
+        height: 10dvh;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(20, 20, 20);
+        z-index: 15;
+    }
+
+    .dropCont {
+        /* bottom: 100%; */
+        transform: translate(-50%, 100%);
+    }
+
+    .asideCancel {
+        display: block;
+    }
+
+    .realList {
+        margin-bottom: 1.5em;
+    }
+
+    .lyricsDisplay {
+        width: 100dvw;
+        height: 100dvh;
+    }
+
+    .reply {
+        width: 100%;
+        aspect-ratio: 1 / 0.25;
+    }
+
+    .anton-sc-regular {
+        font-weight: 200;
+        font-size: 0.3em;
+    }
+
+    .fadeCont {
+        width: 60%;
+    }
+
+    .whiteShad {
+        font-size: 0.4em;
+    }
+
+    .lyricsCont{
+        padding-bottom: 2em;
+    }
+}
+
+@media (max-height: 700px) {
+    
+}

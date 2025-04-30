@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="hitverse-logo.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/bbacfaf443.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+    <script src="index.js" defer type="module"></script>
+    <title>HitVerse</title>
+</head>
+
+<body class="light-theme">
+    <header class="w-100 mainHeader position-relative">
+        <img src="pexels-mark-angelo-sampan-738078-1587927.jpg" alt="" id="topImg" class="position-absolute top-0 z-0">
+        <nav class="w-100 d-flex justify-content-between align-items-center z-3">
+            <button class="btn myBtn ms-4">
+                <i class="fa-solid fa-bars text-white"></i>
+            </button>
+            <div class="sideIcons position-fixed">
+                <div
+                    class="iconCont position-absolute d-flex flex-column align-items-center justify-content-between w-100">
+                    <button class="btn" onclick="window.location.href = 'https://www.facebook.com/share/1FDwWs9emH/?mibextid=wwXIfr'">
+                        <i class="acod fa-brands fa-facebook-f fs-5"></i>
+                    </button>
+                    <button class="btn" onclick="window.location.href = 'https://www.instagram.com/idamodotun?igsh=aGl4bG4zcWdpYjdz&utm_source=qr'">
+                        <i class="acod fa-brands fa-instagram fs-5"></i>
+                    </button>
+                    <button class="btn" onclick="window.location.href = 'https://www.tiktok.com/@idamodotun?_t=ZM-8ucs3WwN2AR&_r=1'">
+                        <i class="acod fa-brands fa-tiktok fs-5"></i>
+                    </button>
+                    <button class="btn" onclick="window.location.href = 'https://x.com/damodotun?s=21'">
+                        <i class="acod fa-brands fa-x-twitter fs-5"></i>
+                    </button>
+                </div>
+            </div>
+            <img src="Music Platform.png" alt="" id="hitverseLogo">
+            <div class="last w-auto me-4 d-flex">
+                <button class="btn text-white me-2 myBtn" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn text-white me-2 myBtn px-2" onclick="window.location.href='signUp.html'">Sign
+                    Up</button>
+                <div class="container">
+                    <label class="theme-switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+        <div class="overshow w-100 h-100">
+            <div class="overshadowCont mt-5 position-absolute">
+                <h1 class="textChange">HITVERSE</h1>
+            </div>
+        </div>
+        <div class="lastShow position-absolute w-100 d-flex flex-column align-items-center justify-content-center">
+            <h1 class="text-center fw-bolder volumeText">Loud Your Speaker Volume</h1>
+            <button class="btn mt-4 fw-bold listenBtn">Listen To DAMODOT</button>
+        </div>
+    </header>
+    <section class="hitVideo mx-auto my-4">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="comp1.mp4" type="video/mp4">
+        </video>
+    </section>
+    <section class="section mx-auto">
+        <h1 class="animate-me text-center">HitVerse is the official music platform of DAMODOT (Adedotun Adedeji Anthony), created to showcase his work, from his hit "Killaman" to his latest releases. It serves as a hub for his Afrosound, allowing him full creative control over his music without relying on external streaming platforms that might remove his work due to licensing issues. While the platform isn’t designed for revenue generation, it strengthens his connection with fans and supports his journey toward mainstream success.</h1>
+        <div class="whoDamo w-auto">
+            <div class="bigPics shadow"></div>
+            <h1 class="damoText fw-bolder">DAMODOT</h1>
+        </div>
+        <h1 class="text-center fw-bolder mt-4 undLabeler">Adedotun Adedeji Anthony <br> The Definition of Multitalented Brilliance
+        </h1>
+        <h1 class="animate-me text-center">Damodotun isn’t just another name in the crowd, he’s a powerhouse leaving everyone else in the dust. Born and bred in Ibadan, he’s not only shaking up the Afrosound scene with a smash hit like "Killaman" that’s racked up over 100,000 streams, but he’s also redefining digital artistry. While most are content with ordinary, he’s crafting mesmerizing websites with HTML, CSS, and JavaScript, and creating jaw-dropping designs using top-tier tools like Adobe Photoshop, Illustrator, and After Effects. With a Higher National Diploma in Statistics sharpening his analytical edge, Adedotun blends creativity and intellect in a way that makes his peers green with envy. If you’re not already in awe, just look at his unstoppable rise—his talent and versatility are setting a standard that’s nearly impossible to match.</h1>
+    </section>
+    <section class="autoCarousel">
+        <div class="carous">
+            <div class="wrap">
+                <img src="Damn.jpg" alt="">
+                <img src="damo7.jpg" alt="">
+                <img src="DAMODOT.jpg" alt="">
+                <img src="Damo1.jpg" alt="">
+                <img src="damo6.jpg" alt="">
+                <img src="damo3.jpg" alt="">
+                <img src="damio8.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <footer class="d-flex justify-content-evenly align-items-center">
+        <img src="Hitverse Logogogo.png" alt="">
+        <a href="">About</a>
+        <a href="" disabled>Awards</a>
+        <a href="">Careers</a>
+        <a href="">Investors</a>
+        <a href="">News</a>
+        <a href="" class="lastOne">Team</a>
+    </footer>
+</body>
+
+</html>

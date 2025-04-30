@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Anton+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="hitverse.css" />
+    <link rel="icon" href="hitverse-logo.png" />
+    <script src="hitverse.js" defer></script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/bbacfaf443.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
+    <title>HitVerse</title>
+</head>
+
+<body>
+    <div class="loader w-100 justify-content-center align-items-center">
+        <img src="Music Platform.png" alt="" />
+    </div>
+    <main class="p-3 m-auto d-flex justify-content-between position-relative">
+        <aside class="inPlay shadow p-3">
+            <div class="title d-flex align-items-center">
+                <button class="cancel asideCancel btn" onclick="remPlayer()">
+                    <i class="fa-solid fa-chevron-down text-white"></i>
+                </button>
+            </div>
+            <div class="musicArt rounded-3 shadow m-auto mt-3">
+                <img src="default img.png" alt="" id="songDp" />
+            </div>
+            <div class="nameInfo mt-3">
+                <p class="text-center text-white">Damodot</p>
+                <p class="text-center fw-bold text-white songNamer">...</p>
+            </div>
+            <div class="playDiv m-auto mt-2">
+                <button class="btn" onclick="playPrevSong()" id="previous">
+                    <i class="fa-solid fa-backward-step text-white"></i>
+                </button>
+                <button class="btn playBTN ms-5">
+                    <i class="fa-solid fa-play text-white"></i>
+                </button>
+                <button class="btn ms-5" onclick="playNextSong()" id="next">
+                    <i class="fa-solid fa-forward-step text-white"></i>
+                </button>
+            </div>
+            <div class="timerDiv w-100 d-flex justify-content-center align-items-center mt-5">
+                <span class="current-time text-white">0:00</span>
+                <input type="range" class="mx-3 waiter" min="0" max="100" value="0" />
+                <span class="total-time text-white">0:00</span>
+            </div>
+            <div class="undBtns d-flex justify-content-around position-absolute">
+                <button class="btn" onclick="musicQueue()">
+                    <i class="fa-solid fa-music text-white"></i>
+                </button>
+                <button class="btn" id="likeButton" onclick="likeSong()">
+                    <i class="fa-solid fa-heart likeButtonWhite"></i>
+                </button>
+                <button class="btn" onclick="displayLyrics()">
+                    <i class="fa-solid fa-comment-dots text-white "></i>
+                </button>
+            </div>
+        </aside>
+        <section class="flex-grow-1 position-relative">
+            <div class="firstCont w-100">
+                <div class="imageLogo m-auto">
+                    <img src="Hitverse Logogogo.png" alt="" class="wrdLogo" />
+                </div>
+                <div class="libraryCont d-flex justify-content-between align-items-center">
+                    <div class="contLeft d-flex align-items-center">
+                        <div class="hitLogo"></div>
+                        <span class="fw-bolder ms-2">LIBRARY</span>
+                    </div>
+                    <div class="contRgt d-flex align-items-center">
+                        <i class="fa-solid fa-upload text-white"></i>
+                        <div class="dpics ms-2 d-flex justify-content-center align-items-center">
+                            <img src="hitverse-logo.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="reply rounded-4 m-auto mt-3 position-relative">
+                    <div class="yourPictureDiv position-absolute w-50 h-100"></div>
+                    <div class="blackFade w-100 h-100 position-absolute">
+                        <div class="fadeCont position-absolute"></div>
+                    </div>
+                </div>
+                <div class="options w-100 mt-4">
+                    <button class="option w-100 btn d-flex justify-content-between align-items-center mt-4"
+                        onclick="songList()" id="allSongsLister">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-music text-white"></i>
+                            <span class="ms-3 fw-bold text-white">Songs</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-white"></i>
+                    </button>
+                    <button class="option w-100 btn d-flex justify-content-between align-items-center mt-4"
+                        onclick="albumList()" id="allAlbumsLister">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-compact-disc text-white"></i>
+                            <span class="ms-3 fw-bold text-white">Albums</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-white"></i>
+                    </button>
+                    <button class="option w-100 btn d-flex justify-content-between align-items-center mt-4"
+                        onclick="likedSongsList()" id="allLikedLister">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-heart text-white"></i>
+                            <span class="ms-3 fw-bold text-white">Likes</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-white"></i>
+                    </button>
+                    <button class="option w-100 btn d-flex justify-content-between align-items-center mt-4"
+                        onclick="lyricsShow()">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-ticket text-white"></i>
+                            <span class="ms-3 fw-bold text-white">Lyrics</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-white"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="songList w-100 position-relative">
+                <div class="songTitle w-100 position-sticky">
+                    <div class="title d-flex align-items-center">
+                        <button class="cancel btn" onclick="showSongList()">
+                            <i class="fa-solid fa-chevron-left text-white"></i>
+                        </button>
+                        <span class="fw-bolder ms-3" id="topSongNamer"></span>
+                    </div>
+                    <h4 class="fw-bolder mt-5 whiteWrd" id="topAlbumNamer"></h4>
+                    <hr class="whiteWrd" />
+                </div>
+                <div class="realList w-100 position-sticky top-0">
+                    <audio src="/" id="audioPlayer"></audio>
+                </div>
+            </div>
+            <div class="fixedPlayer btn d-xxl-none d-xl-none d-md-none d-flex align-items-center justify-content-center position-fixed w-100"
+                onclick="displayPlayer()">
+                <div class="songSide d-flex align-items-center justify-content-between w-100 ms-2">
+                    <div class="btn d-flex align-items-center mt-3 singer">
+                        <div class="myImage rounded-2 fixedUnder">
+                            <img src="default img.png" alt="" id="fixedPlayPics" />
+                        </div>
+                        <div class="artist ms-4">
+                            <span class="songName text-start whiteWrd fw-bold downSongName">...</span>
+                            <p class="text-start whiteWrd">Damodot</p>
+                        </div>
+                    </div>
+                    <div class="songSideRgt">
+                        <button class="btn ms-5 playBTN">
+                            <i class="fa-solid fa-play text-white"></i>
+                        </button>
+                        <button class="btn ms-1" id="moreOptBtn" onclick="disMoreOpt()">
+                            <i class="fa-solid fa-ellipsis-vertical text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="lyricsDisplay w-100">
+                <div class="topLyricsCont d-flex justify-content-between align-items-center position-sticky">
+                    <button class="btn mt-3"></button>
+                    <h2 class="fw-bolder mt-3">Lyrics</h2>
+                    <button class="btn me-4 mt-3" onclick="cancLyricsDisp()">
+                        <i class="fa-solid fa-xmark text-white"></i>
+                    </button>
+                </div>
+                <div class="lyricsCont">
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="dropCont">
+        <button class="btn mt-2 me-2" onclick="cancDropCont()">
+            <i class="fa-solid fa-xmark text-white"></i>
+        </button>
+        <div class="contDropCont">
+            <div class="row">
+                <button class="btn btn-social" onclick="window.location.href = 'https://www.facebook.com/share/1FDwWs9emH/?mibextid=wwXIfr'" >
+                    <i class="fa-brands fa-facebook-f text-white"></i><span
+                        class="soc-label fb text-white px-2 rounded-2">Facebook</span>
+                </button>
+                <button class="btn btn-social" onclick="window.location.href = 'https://x.com/damodotun?s=21'" >
+                    <i class="fa-brands fa-x-twitter text-white"></i><span
+                        class="soc-label
+                         X text-white px-2 bg-primary rounded-2">Twitter</span>
+                </button>
+                <button class="btn btn-social" onclick="window.location.href = 'https://www.instagram.com/idamodotun?igsh=aGl4bG4zcWdpYjdz&utm_source=qr'" >
+                    <i class="fa-brands fa-instagram text-white"></i><span
+                        class="soc-label instagram px-2 text-white bg-danger rounded-2">Instagram</span>
+                </button>
+                <button class="btn btn-social" onclick="window.location.href = 'https://www.tiktok.com/@idamodotun?_t=ZM-8ucs3WwN2AR&_r=1'" >
+                    <i class="fa-brands fa-tiktok text-white"></i><span
+                        class="soc-label tiktok text-white px-2 bg-dark rounded-2">Tiktok</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

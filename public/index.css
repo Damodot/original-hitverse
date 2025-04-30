@@ -1,0 +1,532 @@
+* {
+    margin: 0;
+    padding: 0;
+    border-radius: 0%;
+}
+
+body {
+    background-color: black;
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    transition: background-image 0.3s ease, color 0.3s ease;
+}
+
+header {
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+header img {
+    width: 100dvw;
+    height: 100dvh;
+    object-fit: cover;
+    object-position: right;
+}
+
+nav {
+    height: 8dvh;
+    background-color: rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(1em);
+    position: fixed;
+}
+
+#hitverseLogo {
+    width: 3em;
+    height: 0.6em;
+}
+
+.myBtn i {
+    font-size: 1em;
+}
+
+.sideIcons {
+    width: 1.5em;
+    height: 92dvh;
+    background-color: rgba(111, 0, 255, 0.6);
+    backdrop-filter: blur(30px);
+    top: 8dvh;
+    left: 0;
+    transform: translateX(-0.5em);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.sideIcons.view {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.iconCont {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.iconCont i {
+    font-size: 0.5em;
+    line-height: 1.5em;
+}
+
+/* Slider */
+/* Theme switch styles */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 0.8em;
+    height: 0.5em;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(204, 204, 204);
+    transition: background-color 0.4s;
+    border-radius: 0.85em;
+}
+
+.slider:before {
+    position: absolute;
+    content: "☀";
+    font-size: 0.4em;
+    width: 0.6em;
+    aspect-ratio: 1 / 1;
+    left: 0.1em;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    transition: transform 0.4s;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+input:checked+.slider {
+    background-color: rgb(34, 34, 34);
+}
+
+input:checked+.slider:before {
+    transform: translate(0.4em, -50%);
+    background-color: rgb(0, 0, 0);
+    content: "🌙";
+    font-size: 0.4em;
+}
+
+/* Light theme */
+.light-theme {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+/* Dark theme */
+.dark-theme {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+/* Other section */
+.overshadowCont {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+}
+
+.overshadowCont h1 {
+    color: white;
+    font-size: 4.8em;
+    font-weight: 900;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-shadow:
+        0px 0px 10px rgba(140, 0, 233, 0.731),
+        0px 0px 20px rgba(212, 39, 255, 0.7),
+        -3px 3px 5px rgba(0, 0, 0, 0.5),
+        3px -3px 5px rgba(255, 0, 200, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.overshadowCont h1:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.section {
+    height: auto;
+    width: 94dvw;
+    background-color: transparent;
+    text-align: center;
+    letter-spacing: 0.15em;
+    margin: 0;
+}
+
+.volumeText{
+    color: white;
+}
+.volumeText:hover {
+    cursor: pointer;
+    text-shadow:
+        0px 0px 10px rgba(140, 0, 233, 0.731),
+        0px 0px 20px rgba(212, 39, 255, 0.7),
+        -3px 3px 5px rgba(0, 0, 0, 0.5),
+        3px -3px 5px rgba(255, 0, 200, 0.4);
+}
+
+.bigPics {
+    width: 15em;
+    aspect-ratio: 1 / 0.7;
+    background-image: url(DAMODOT.jpg);
+    background-position: right;
+    background-size: cover;
+    border: 0.3em solid white;
+    border-radius: 0.5em;
+}
+
+.damoText {
+    font-size: 1.5em;
+    margin: auto 2em;
+}
+
+.whoDamo {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.section h1 {
+    line-height: 2em;
+    margin: 1em auto 0 auto;
+}
+
+span {
+    display: inline-block;
+}
+
+.sectCont {
+    width: 90%;
+    margin: auto;
+    overflow-x: auto;
+}
+
+.lastShow {
+    bottom: 5%;
+}
+
+.lastShow h1 {
+    font-size: 0.4em;
+}
+
+.listenBtn {
+    color: white;
+    border: 0.5px solid white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.listenBtn:active {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.listenBtn:hover {
+    background-color: rgb(153, 0, 255);
+    transition: background-color 0.3s ease;
+}
+
+.linkBtn {
+    border-radius: 1.5em;
+    width: 15em;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+}
+
+.linkBtn:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 3em rgb(198, 198, 198);
+}
+
+.linkBtnOne {
+    background-image: url(IMG-9415.jpg);
+    background-size: cover;
+    background-position: center;
+    transition: background-position 0.5s ease, transform 0.5s ease;
+    overflow: hidden;
+}
+
+.linkBtnTwo {
+    background-image: url(IMG_3189.jpg);
+}
+
+.linkBtnThree {
+    background-image: url(soundCheck.jpg);
+}
+
+.linkBtnFour {
+    background-image: url(Premium\ Vector\ _\ Hand\ drawn\ silhouette\ of\ raccoon.jpeg);
+}
+
+.topPlay {
+    width: 6em;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    float: right;
+}
+
+.playVisible,
+.wrdVisible {
+    font-size: 2em;
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+}
+
+.topPlay i {
+    font-size: 5em;
+}
+
+.downName {
+    margin-top: 10em;
+    border-radius: 2em;
+    width: 100%;
+    height: 30%;
+}
+
+.linkBtnOne:hover .playVisible,
+.linkBtnOne:hover .wrdVisible {
+    visibility: visible;
+    transition: visibility 0.3s ease;
+}
+
+.undLabel {
+    font-size: 2em;
+}
+
+.portBtnLast {
+    border-radius: 50%;
+    width: 6.5em;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0.1em 0.1em 1em tomato;
+}
+
+.portBtnLast:hover {
+    box-shadow: 0 0 3em tomato;
+}
+
+.blueGlow:hover {
+    box-shadow: 0 0 3em rgb(45, 119, 255);
+}
+
+.yellowGlow:hover {
+    box-shadow: 0 0 3em rgb(183, 255, 0);
+}
+
+.purpleGlow:hover {
+    box-shadow: 0 0 3em rgb(247, 0, 255);
+}
+
+.nextButton {
+    display: flex;
+}
+
+.autoCarousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.carous {
+    overflow: hidden;
+    width: 13em;
+}
+
+.wrap {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 6em;
+    justify-items: stretch;
+    animation: slide 15s linear infinite;
+}
+
+.hitVideo{
+    width: 70%;
+    aspect-ratio: 1 / 0.565;
+    border-radius: 0.4em;
+    overflow: hidden;
+    position: relative;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* z-index: -1; */
+    object-fit: contain;
+}
+
+@keyframes slide {
+    to {
+        translate: calc(-4 * 6em);
+    }
+}
+
+.wrap img {
+    width: 4.3em;
+    height: 4.3em;
+    border-radius: 0.4em;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* Footer */
+footer {
+    width: 100%;
+    height: fit-content;
+    background-color: black;
+}
+
+footer a {
+    font-size: 0.3em;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+footer a:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    text-decoration: underline;
+    color: rgb(153, 0, 255);
+}
+
+footer img {
+    width: 3em;
+    height: 0.45em;
+    margin: 2em 0;
+}
+
+
+
+
+
+
+/* Media Query */
+@media (max-width: 1200px) {
+
+    /* nav bar */
+    /* big Display */
+    .overshadowCont h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 992px) {
+
+    /* nav bar */
+    /* big Display */
+    .overshadowCont h1 {
+        font-size: 2.2em;
+    }
+
+    .linkBtn {
+        width: 30em;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* nav bar */
+    body {
+        font-size: 35px;
+    }
+
+    /* big Display */
+    .overshadowCont {
+        transform: translate(-50%, -60%);
+    }
+
+    .overshadowCont h1 {
+        font-size: 2em;
+    }
+
+    .whoDamo {
+        display: block;
+    }
+
+    .bigPics {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .damoText {
+        margin: 1em auto 0 auto;
+    }
+
+    .hitVideo{
+        width: 90%;
+        aspect-ratio: 1 / 0.565;
+    }
+
+    /* footer */
+    footer {
+        flex-direction: column;
+    }
+
+    footer a {
+        line-height: 4em;
+    }
+
+    footer kbd {
+        margin: 2em 0 0 0;
+    }
+
+    .lastOne {
+        margin: 0 0 2em 0;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* nav bar */
+    #hitverseLogo {
+        display: none;
+    }
+
+    /* big Display */
+    .overshadowCont h1 {
+        font-size: 1.5em;
+    }
+
+    .linkBtn {
+        width: 5em;
+        border-radius: 0.3em;
+    }
+
+    .portBtnLast:hover {
+        box-shadow: 0 0 3em tomato;
+    }
+
+    .blueGlow:hover {
+        box-shadow: 0 0 3em rgb(45, 119, 255);
+    }
+
+    .yellowGlow:hover {
+        box-shadow: 0 0 3em rgb(183, 255, 0);
+    }
+
+    .purpleGlow {
+        box-shadow: 0 0 3em rgb(247, 0, 255);
+    }
+
+    .portBtnLast {
+        box-shadow: 0 0 3em tomato;
+    }
+}
