@@ -1,0 +1,32 @@
+// DAMODOT, HitVerse's first artist. Created once by `npm run seed`; edits made on the site are kept.
+export const damodot = {
+  slug: 'damodot',
+  name: 'Damodot',
+  bio: 'Damodotun isn’t just another name in the crowd, he’s a powerhouse leaving everyone else in the dust. Born and bred in Ibadan, he’s not only shaking up the Afrosound scene with a smash hit like "Killaman" that’s racked up over 100,000 streams, but he’s also redefining digital artistry. While most are content with ordinary, he’s crafting mesmerizing websites with HTML, CSS, and JavaScript, and creating jaw-dropping designs using top-tier tools like Adobe Photoshop, Illustrator, and After Effects. With a Higher National Diploma in Statistics sharpening his analytical edge, Adedotun blends creativity and intellect in a way that makes his peers green with envy. If you’re not already in awe, just look at his unstoppable rise—his talent and versatility are setting a standard that’s nearly impossible to match.',
+  genre: 'Afrosound',
+  location: 'Ibadan, Nigeria',
+  avatar: '/media/img/damodot.webp',
+  banner: '/media/img/hero.webp',
+  socials: {
+    facebook: 'https://www.facebook.com/share/1FDwWs9emH/',
+    instagram: 'https://www.instagram.com/idamodotun',
+    tiktok: 'https://www.tiktok.com/@idamodotun',
+    x: 'https://x.com/damodotun',
+  },
+  fanBase: { name: 'Disturbers', member: 'Disturber' },
+  welcome: 'You’re an official Disturber',
+  gallery: [
+    { src: '/media/img/damn.webp', title: 'Glow', alt: 'DAMODOT close up under purple light, one eye glowing' },
+    { src: '/media/img/damo7.webp', title: 'Under the lights', alt: 'DAMODOT in sunglasses performing into a microphone under purple stage lights' },
+    { src: '/media/img/damodot.webp', title: 'Sing loud', alt: 'DAMODOT singing in a white shirt in front of teal drapes' },
+    { src: '/media/img/damo1.webp', title: 'Hands up', alt: 'DAMODOT on stage with one hand raised, microphone in the other' },
+    { src: '/media/img/damo6.webp', title: 'Backstage', alt: 'DAMODOT seen from behind in a patterned shirt, next to white balloons' },
+    { src: '/media/img/damo3.webp', title: 'On the mic', alt: 'DAMODOT in sunglasses holding the microphone close' },
+    { src: '/media/img/damo8.webp', title: 'Night set', alt: 'DAMODOT performing on a dark stage with neon rings overhead' },
+  ],
+  showcaseVideo: '/media/video/showcase.mp4',
+  showcasePoster: '/media/img/showcase-poster.webp',
+  featured: true,
+  verified: true,
+  onboarded: true,
+};

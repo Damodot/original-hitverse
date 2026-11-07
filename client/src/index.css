@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f7f6fa;
+  --bg-elevated: #ffffff;
+  --fg: #121015;
+  --muted: #625d6e;
+  --subtle: #ece9f2;
+  --border: #dedae6;
+  --brand: #7a1fd1;
+  --brand-strong: #6100a1;
+  --brand-fg: #ffffff;
+  --ring: #9b4dff;
+  --toast-bg: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0a0b;
+  --bg-elevated: #141317;
+  --fg: #f4f2f8;
+  --muted: #9b96a6;
+  --subtle: #1d1b22;
+  --border: #2a2731;
+  --brand: #9933ff;
+  --brand-strong: #7a1fd1;
+  --brand-fg: #ffffff;
+  --ring: #b06bff;
+  --toast-bg: #24212b;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-fg: var(--brand-fg);
+  --color-ring: var(--ring);
+  --font-sans: 'Afacad Flux', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Anton SC', 'Impact', ui-sans-serif, sans-serif;
+}
+
+@theme {
+  --animate-eq: eq 0.9s ease-in-out infinite;
+  @keyframes eq {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+  }
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-size: 17px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  ::selection { background: var(--brand); color: var(--brand-fg); }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+}
+
+@layer utilities {
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

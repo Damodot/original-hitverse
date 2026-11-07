@@ -1,0 +1,30 @@
+{
+  "name": "hitverse",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c magenta,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "npm start -w server",
+    "seed": "npm run seed -w server",
+    "media": "node scripts/optimize-media.mjs",
+    "db:up": "docker compose up -d mongo",
+    "db:down": "docker compose down",
+    "live:up": "docker compose up -d livekit",
+    "make-admin": "npm run make-admin -w server --",
+    "media:to-db": "npm run media:to-db -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "sharp": "0.35.5"
+  },
+  "overrides": {
+    "vgpu": {
+      "@modelcontextprotocol/server": "2.3.1"
+    }
+  }
+}

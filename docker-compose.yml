@@ -1,0 +1,19 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - hitverse-mongo:/data/db
+  # Live rooms: LiveKit in development mode (keys devkey / secret). Not for production.
+  livekit:
+    image: livekit/livekit-server:v1.13.10
+    restart: unless-stopped
+    command: --dev --bind 0.0.0.0 --node-ip 127.0.0.1 --udp-port 7882
+    ports:
+      - "7880:7880"
+      - "7881:7881"
+      - "7882:7882/udp"
+volumes:
+  hitverse-mongo:
